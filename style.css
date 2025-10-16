@@ -1,0 +1,130 @@
+:root {
+  --text-color: #222;
+  --accent-color: rgb(246, 16, 16);
+  --card-bg: rgb(240, 240, 240);
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  color: var(--text-color);
+  margin: 0;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+article[data-testid="test-profile-card"] {
+  background: var(--card-bg);
+  box-shadow: var(--shadow);
+  max-width: 600px;
+  width: 100%;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+figure {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+img[data-testid="test-user-avatar"] {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+header {
+  text-align: center;
+}
+
+h2[data-testid="test-user-name"] {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+p[data-testid="test-user-bio"] {
+  font-size: 1rem;
+  color: #555;
+  text-align: center;
+  line-height: 1.4;
+}
+
+p[data-testid="test-user-time"] {
+  font-size: 0.9rem;
+  color: #888;
+  text-align: center;
+  margin-top: -0.5rem;
+}
+
+nav[data-testid="test-user-social-links"] {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+nav a {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+nav a:focus,
+nav a:hover {
+  text-decoration: underline;
+  /* outline: 2px solid var(--accent-color); */
+  /* outline-offset: 4px; */
+}
+
+.section-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+section h3 {
+  margin-bottom: 0.5rem;
+  color: #000;
+}
+
+ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+li {
+  line-height: 1.4;
+}
+
+@media (min-width: 768px) {
+  article[data-testid="test-profile-card"] {
+    flex-direction: row;
+    align-items: start;
+  }
+
+  figure {
+    flex: 1;
+    justify-content: flex-start;
+  }
+
+  .card-content {
+    flex: 2;
+  }
+
+  header,
+  p {
+    text-align: left;
+  }
+
+  .section-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+}

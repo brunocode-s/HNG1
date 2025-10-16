@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bruno's Profile Card</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <article data-testid="test-profile-card">
+      <figure>
+        <img
+          src="image/profile picture.png"
+          alt="Bruno's profile photo"
+          data-testid="test-user-avatar"
+        />
+      </figure>
+
+      <div class="card-content">
+        <header>
+          <h2 data-testid="test-user-name">Alain Bruno</h2>
+          <p data-testid="test-user-bio">
+            A frontend engineer passionate about crafting clean UI and
+            accessible web experiences. 
+          </p>
+        </header>
+
+        <p data-testid="test-user-time"></p>
+
+        <nav data-testid="test-user-social-links" aria-label="Social links">
+          <a
+            href="https://x.com/brunocode_s"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-testid="test-user-social-twitter"
+            >Twitter</a
+          >
+          <a
+            href="https://github.com/brunocode-s"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-testid="test-user-social-github"
+            >GitHub</a
+          >
+          <a
+            href="https://www.linkedin.com/in/bruno-alain-269143266/"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-testid="test-user-social-linkedin"
+            >LinkedIn</a
+          >
+        </nav>
+
+        <div class="section-container">
+            <section>
+                <h3>Hobbies</h3>
+                <ul data-testid="test-user-hobbies">
+                  <li>Coding</li>
+                  <li>The gym</li>
+                </ul>
+              </section>
+      
+              <section>
+                <h3>Dislikes</h3>
+                <ul data-testid="test-user-dislikes">
+                    <li>Bad food</li>
+                    <li>ugly ui</li>
+                </ul>
+              </section>
+        </div>
+      </div>
+    </article>
+
+    <script src="script.js"></script>
+  </body>
+</html>
