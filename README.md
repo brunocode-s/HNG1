@@ -5,7 +5,7 @@ This project is a **responsive, accessible Profile Card** built with **HTML, CSS
 
 ## Live Demo
 
-[Live Site](brunosprofilecard.vercel.app)  
+[Live Site](https://brunosprofilecard.vercel.app/)  
 [GitHub Repository](https://github.com/brunocode-s/HNG1.git)
 
 ## 🧩 Project Overview
