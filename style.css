@@ -3,128 +3,300 @@
   --accent-color: rgb(246, 16, 16);
   --card-bg: rgb(240, 240, 240);
   --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --error-color: #d32f2f;
+  --success-color: #388e3c;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
   font-family: system-ui, sans-serif;
   color: var(--text-color);
   margin: 0;
-  padding: 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  padding: 0;
+  line-height: 1.6;
 }
 
-article[data-testid="test-profile-card"] {
-  background: var(--card-bg);
+.navbar {
+  background-color: #333;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
   box-shadow: var(--shadow);
-  max-width: 600px;
-  width: 100%;
-  padding: 1.5rem;
+}
+
+.navbar nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.navbar a:hover,
+.navbar a:focus {
+  color: var(--accent-color);
+s}
+
+.navbar a.active {
+  color: var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 0.5rem;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  min-height: calc(100vh - 100px);
+}
+
+.profile-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 2rem;
 }
 
-figure {
+.profile-card {
+  background: var(--card-bg);
+  box-shadow: var(--shadow);
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 600px;
+  width: 100%;
+}
+
+.profile-card figure {
   margin: 0;
-  display: flex;
-  justify-content: center;
+  text-align: center;
 }
 
-img[data-testid="test-user-avatar"] {
-  width: 120px;
-  height: 120px;
+.profile-card img {
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   object-fit: cover;
 }
 
-header {
+.profile-card h2 {
   text-align: center;
+  font-size: 1.8rem;
+  margin: 1rem 0 0.5rem;
 }
 
-h2[data-testid="test-user-name"] {
+.profile-card p {
   text-align: center;
-  font-size: 1.5rem;
-}
-
-p[data-testid="test-user-bio"] {
-  font-size: 1rem;
   color: #555;
-  text-align: center;
-  line-height: 1.4;
 }
 
-p[data-testid="test-user-time"] {
-  font-size: 0.9rem;
-  color: #888;
-  text-align: center;
-  margin-top: -0.5rem;
-}
-
-nav[data-testid="test-user-social-links"] {
+.profile-links {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
 }
 
-nav a {
+.profile-links a {
   color: var(--accent-color);
   text-decoration: none;
   font-weight: 600;
+  transition: transform 0.2s;
 }
 
-nav a:focus,
-nav a:hover {
+.profile-links a:hover,
+.profile-links a:focus {
   text-decoration: underline;
-  /* outline: 2px solid var(--accent-color); */
-  /* outline-offset: 4px; */
+  transform: scale(1.1);
 }
 
-.section-container {
+.profile-sections {
+  display: flex;
+  margin-top: 2rem;
+  gap: 2rem;
+}
+
+.profile-section {
+  background: var(--card-bg);
+  width: 250px;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.profile-section h3 {
+  color: var(--accent-color);
+  margin-top: 0;
+}
+
+.profile-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.profile-section li {
+  padding: 0.5rem 0;
+}
+
+x.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
 }
 
-section h3 {
+label {
+  font-weight: 600;
   margin-bottom: 0.5rem;
-  color: #000;
+  color: var(--text-color);
 }
 
-ul {
-  margin: 0;
-  padding-left: 1.2rem;
+input,
+textarea {
+  padding: 0.75rem;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.3s;
 }
 
-li {
-  line-height: 1.4;
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(246, 16, 16, 0.1);
 }
 
-@media (min-width: 768px) {
-  article[data-testid="test-profile-card"] {
-    flex-direction: row;
-    align-items: start;
+input.error,
+textarea.error {
+  border-color: var(--error-color);
+}
+
+.error-message {
+  color: var(--error-color);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  display: none;
+}
+
+.error-message.show {
+  display: block;
+}
+
+.success-message {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  border: 1px solid #c3e6cb;
+  display: none;
+}
+
+.success-message.show {
+  display: block;
+}
+
+button {
+  background-color: var(--accent-color);
+  color: white;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #d40000;
+  transform: translateY(-2px);
+}
+
+button:focus {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 4px;
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* About Page */
+main section {
+  margin-bottom: 2.5rem;
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+main h2 {
+  color: var(--accent-color);
+  font-size: 1.8rem;
+  margin-top: 0;
+  border-bottom: 3px solid var(--accent-color);
+  padding-bottom: 0.5rem;
+}
+
+main p {
+  line-height: 1.8;
+  color: #555;
+}
+
+main ul {
+  list-style-position: inside;
+  color: #555;
+}
+
+main li {
+  margin-bottom: 0.75rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  main {
+    padding: 1rem;
   }
 
-  figure {
-    flex: 1;
-    justify-content: flex-start;
+  .navbar nav {
+    flex-direction: column;
+    gap: 1rem;
   }
 
-  .card-content {
-    flex: 2;
+  .contact-form,
+  .profile-card {
+    padding: 1.5rem;
   }
 
-  header,
-  p {
-    text-align: left;
+  button {
+    width: 100%;
   }
 
-  .section-container {
-    display: flex;
-    flex-direction: row;
+  .profile-sections {
+    flex-direction: column;
     align-items: center;
   }
 }
